@@ -5,36 +5,44 @@
  * @format
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from 'react-native';
+import Item from './components/Item';
 import {client} from './graphql/Client';
 import {ItemsQuery} from './graphql/Queries';
 
 export default class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  state = {
-    loading: true,
-  };
-  componentDidMount() {
-    console.log('gola');
-    this.requestHeadlines();
-  }
   requestHeadlines = () => {
     client
       .query({
         query: ItemsQuery,
       })
       .then(response => {
-        console.log('RESPONSE ==>', response);
-        this.setState({loading: response.loading});
+        console.log('RESPONSE ==>', response.data.items);
+        this.setState({
+          loading: response.loading,
+          items: response.data.items,
+        });
       })
       .catch(error => {
         console.log('ERROR ==>', error);
       });
   };
+  state = {
+    loading: true,
+    items: [],
+  };
+  componentDidMount() {
+    this.requestHeadlines();
+  }
   render() {
     const {loading} = this.state;
+    const {items} = this.state;
     if (loading) {
       return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -45,10 +53,14 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Headlines App</Text>
+          <Text style={styles.headerText}>Lista items</Text>
         </View>
         <View style={styles.contentContainer}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <FlatList
+            data={items}
+            renderItem={({item}) => <Item {...item} />}
+            keyExtractor={item => item.id}
+          />
         </View>
       </View>
     );
@@ -72,7 +84,5 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     marginTop: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
