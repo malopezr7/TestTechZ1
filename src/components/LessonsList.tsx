@@ -31,7 +31,7 @@ const LessonsList = (props: {lessons: Lessons}) => {
             <Card.Cover source={{uri: item.item.image}} />
             <Card.Title title={item.item.title} />
             <Card.Content>
-              <Paragraph numberOfLines={3}>{item.item.image}</Paragraph>
+              <Paragraph numberOfLines={3}>{item.item.author}</Paragraph>
               <Paragraph numberOfLines={3}>{item.item.content}</Paragraph>
             </Card.Content>
           </Card>
