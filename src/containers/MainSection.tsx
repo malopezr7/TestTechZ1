@@ -37,7 +37,6 @@ export default function Main() {
     );
   }
   const filterByCategory = (category: Category) => {
-    console.log(lessons);
     setFilteredLessons(
       category.title === 'all'
         ? lessons
