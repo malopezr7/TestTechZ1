@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
-import {ApolloProvider} from '@apollo/client';
-import {client} from './utils/Client';
-import Home from './components/Home';
+import {NavigationContainer} from '@react-navigation/native';
+import Index from './Index';
+import LessonInfo from './components/LessonInfo';
+import {createStackNavigator} from '@react-navigation/stack';
+import {RootStackParamList} from './components/RootStackParams';
 
+const Stack = createStackNavigator<RootStackParamList>();
 export class app extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <Home />
-      </ApolloProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Main"
+            component={Index}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="Info" component={LessonInfo} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
