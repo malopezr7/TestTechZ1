@@ -3,8 +3,8 @@ import {Categories, Category} from '../models/Category';
 import {Lesson, Lessons} from '../models/Lessons';
 import TabBar from '../components/TabBar';
 
-export default function Main(props: {lessons: Lessons}) {
-  const {lessons} = props;
+export default function Main(props: {lessons: Lessons; filterLessons: any}) {
+  const {lessons, filterLessons} = props;
   function onlyUnique(value: Lesson, index: any, self: Lessons) {
     return self.findIndex(t => t.category.id === value.category.id) === index;
   }
@@ -14,5 +14,5 @@ export default function Main(props: {lessons: Lessons}) {
     .map(t => t.category) as Categories;
   categories.unshift(allCategory);
 
-  return <TabBar categories={categories} />;
+  return <TabBar categories={categories} filterLessons={filterLessons} />;
 }

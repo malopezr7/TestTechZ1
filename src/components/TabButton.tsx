@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Button} from 'react-native-paper';
+import {Category} from '../models/Category';
 
-const TabButton = (props: {text: string}) => {
-  const {text} = props;
+const TabButton = (props: {category: Category; filterLessons: any}) => {
+  const {category, filterLessons} = props;
   return (
     <Button
       style={{
@@ -15,8 +16,10 @@ const TabButton = (props: {text: string}) => {
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
       }}
       mode="contained"
-      onPress={() => console.log('Pressed')}>
-      {text}
+      onPress={() => {
+        filterLessons(category);
+      }}>
+      {category.title}
     </Button>
   );
 };
