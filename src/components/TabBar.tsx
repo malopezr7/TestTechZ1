@@ -1,8 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Category from '../models/Category';
-import {FlatList, ScrollView, View, Text} from 'react-native';
+import {Categories} from '../models/Category';
+import {FlatList} from 'react-native';
+import TabButton from './TabButton';
 
-const TabBar = ({categories}: any) => <Text>{categories.length}</Text>;
+const TabBar = (props: {categories: Categories}) => {
+  return (
+    <FlatList
+      horizontal={true}
+      data={props.categories}
+      renderItem={item => <TabButton text={item.item.title} />}
+    />
+  );
+};
 
 export default TabBar;

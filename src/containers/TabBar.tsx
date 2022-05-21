@@ -1,14 +1,17 @@
 import React from 'react';
 import {Categories, Category} from '../models/Category';
-import {Lessons} from '../models/Lessons';
+import {Lesson, Lessons} from '../models/Lessons';
 import TabBar from '../components/TabBar';
 
-interface TabBarProps {
-  lessons: Lessons;
-}
-export default function Main({lessons}: TabBarProps) {
-  const allCategory: Category = {id: 'all', displayName: 'all'} as Category;
-  let categories: Categories = lessons.map(t => t.category) as Categories;
+export default function Main(props: {lessons: Lessons}) {
+  const {lessons} = props;
+  function onlyUnique(value: Lesson, index: any, self: Lessons) {
+    return self.findIndex(t => t.category.id === value.category.id) === index;
+  }
+  const allCategory: Category = {id: 'all', title: 'all'} as Category;
+  let categories: Categories = lessons
+    .filter(onlyUnique)
+    .map(t => t.category) as Categories;
   categories.unshift(allCategory);
 
   return <TabBar categories={categories} />;

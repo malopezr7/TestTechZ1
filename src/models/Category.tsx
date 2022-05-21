@@ -1,6 +1,7 @@
 export type Category = {
   id: string;
-  displayName: string;
+  title: string;
+  __typename: 'Category';
 };
 
 export type Categories = Category[];
