@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Index from './Index';
-import LessonInfo from './components/LessonInfo';
+import LessonInfo from './components/LessonInfo/LessonInfo';
 import {createStackNavigator} from '@react-navigation/stack';
-import {RootStackParamList} from './components/RootStackParams';
+import {RootStackParamList} from './utils/params/RootStackParams';
 
 const Stack = createStackNavigator<RootStackParamList>();
 export class app extends Component {

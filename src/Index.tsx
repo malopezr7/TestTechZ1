@@ -1,6 +1,6 @@
 import {ApolloProvider} from '@apollo/client';
 import React from 'react';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import {client} from './utils/Client';
 
 const Index = () => {

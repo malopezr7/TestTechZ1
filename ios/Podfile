@@ -20,7 +20,6 @@ target 'TestTechZ1' do
   )
 
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   target 'TestTechZ1Tests' do
     inherit! :complete

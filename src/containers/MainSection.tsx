@@ -3,7 +3,7 @@ import {ApolloError, useQuery} from '@apollo/client';
 import {ActivityIndicator, View, Text} from 'react-native';
 import {GET_ALL_LESSONS} from '../operations/queries/getAllLessons';
 import {GetAllLessons} from '../operations/queries/types/GetAllLessons';
-import MainSection from '../components/MainSection';
+import MainSection from '../components/MainSection/MainSection';
 import {Lessons} from '../models/Lessons';
 import {Category} from '../models/Category';
 

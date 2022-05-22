@@ -1,5 +1,5 @@
 import React from 'react';
-import LessonsList from '../components/LessonsList';
+import LessonsList from '../components/LessonsList/LessonsList';
 import {Lessons} from '../models/Lessons';
 
 export default function Main(props: {lessons: Lessons}) {

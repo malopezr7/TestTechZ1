@@ -1,9 +1,9 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import TabBar from '../containers/TabBar';
-import LessonsList from '../containers/LessonsList';
-import {Lessons} from '../models/Lessons';
+import TabBar from '../../containers/TabBar';
+import LessonsList from '../../containers/LessonsList';
+import {Lessons} from '../../models/Lessons';
 
 const MainSection = (props: {
   lessons: Lessons;

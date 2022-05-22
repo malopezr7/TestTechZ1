@@ -1,7 +1,7 @@
 import React from 'react';
 import {Categories, Category} from '../models/Category';
 import {Lesson, Lessons} from '../models/Lessons';
-import TabBar from '../components/TabBar';
+import TabBar from '../components/TabBar/TabBar';
 
 export default function Main(props: {lessons: Lessons; filterLessons: any}) {
   const {lessons, filterLessons} = props;

@@ -1,4 +1,4 @@
-import {Lesson} from '../models/Lessons';
+import {Lesson} from '../../models/Lessons';
 
 export type RootStackParamList = {
   Main: undefined;
