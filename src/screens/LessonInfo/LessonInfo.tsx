@@ -11,7 +11,7 @@ import {
   GoBackButton,
   Title,
 } from './LessonInfo.styles';
-import LessonImage from '../Image/LessonImage';
+import LessonImage from '../../components/Image/LessonImage';
 
 export interface InfoScreenProps {
   navigation: StackNavigationProp<RootStackParamList, 'Info'>;
